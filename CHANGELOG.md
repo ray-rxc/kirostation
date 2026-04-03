@@ -1,3 +1,10 @@
+## v1.0.0-60 (2026-04-02)
+
+### 수정
+- Jira Data Center PAT 엔드포인트 수정 (Cloud: /search/jql, DC: /search)
+
+---
+
 ## v1.0.0-59 (2026-04-02)
 
 ### 개선
