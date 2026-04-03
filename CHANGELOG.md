@@ -1,0 +1,160 @@
+## v1.0.0-59 (2026-04-02)
+
+### 개선
+- 자동 업데이트를 public repo(ray-rxc/kirostation)에서 체크 — GitHub 토큰 불필요
+- 릴리즈 스크립트(release.sh) — private + public 양쪽 릴리즈 + CHANGELOG 동기화
+
+---
+
+## v1.0.0-58 (2026-04-02)
+
+### 신규
+- 앱 아이콘 추가
+- Jira Data Center PAT 인증 지원 (Cloud/PAT 자동 분기)
+
+### 개선
+- DSAgentMenu 공통 컴포넌트 — 에이전트 메뉴 4곳 통합 (Jira/GitHub/Files/Specs)
+- 메뉴 구조 개선: [글로벌 에이전트 | 프로젝트별(기본 에이전트 + 에이전트들)]
+- 프롬프트를 CLI 인자로 전달 (onPromptReady 제거, claude/kiro-cli/codex 호환)
+- Global 섹션에 루트 파일도 표시
+- 앱 강제 다크모드 (라이트모드에서 텍스트 안 보이는 문제 해결)
+
+### 수정
+- pull 시 머지된 로컬 브랜치 자동 정리
+
+---
+
+## v1.0.0-57 (2026-04-02)
+
+### 신규
+- 자동 업데이트 — GitHub Releases에서 새 버전 감지 → DMG 다운로드 → 앱 교체
+  - 앱 시작 / 비활성→활성 시 체크 (1시간 쿨다운)
+  - 사이드바 하단 배지 → 릴리즈 노트 시트 → 즉시 또는 다음 실행 시 업데이트
+
+### 수정
+- auto-prune: pull 시 삭제된 리모트 브랜치의 로컬 브랜치 자동 정리
+
+---
+
+## v1.0.0-55 (2026-04-02)
+
+### 신규
+- .kiro GitHub Sync — 프로젝트별 `.kiro/` 디렉토리 동기화 기능
+  - Pull / Commit & Push (feature 브랜치 -u 지원)
+  - 브랜치 전환(main 포함) / 삭제 / merged 표시
+  - 파일·커밋 클릭 → NSTextView 색상 diff 패널
+  - PR 클릭 → 브라우저에서 GitHub 열기
+  - Refresh 버튼 (fetch + 전체 상태 갱신)
+  - 5분 주기 모니터링 + macOS 알림 (새 PR 감지)
+  - 사이드바: ahead/behind/changed 상태 아이콘 + PR 뱃지
+  - 충돌 해결 UI (side-by-side, Use Local/Remote/Edit)
+
+### 개선
+- KiroSyncStatus 확장 (3→8 case: synced/changed/behind/ahead/aheadBehind/conflict/newPR/syncing)
+- 사이드바 프로젝트 우클릭 ".kiro Sync…" 메뉴 (기존 pull-only 대체)
+- 기존 워닝 수정 (nonisolated KiroFiles.empty)
+
+---
+
+## v1.0.0-56 (2026-04-01)
+
+### 수정
+- File descriptor 누수 수정 — DirectoryWatcher를 DispatchSource → FSEventStream으로 교체 (DIR fd 4800+ → 1)
+- SidebarView 파일 스캔 URL API → String API (resourceValues 캐싱 fd 누수 제거)
+- setupWatcher ↔ reload 무한 루프 제거
+- 장시간 사용 시 앱 느려지는 문제 해결
+- 프로세스 종료 시 SIGKILL fallback 추가 (좀비 프로세스 방지)
+
+---
+
+## v1.0.0-54 (2026-04-01)
+
+### 신규
+- Deep Link prompt 파라미터 — `kirostation://new-tab?agent=xxx&prompt=yyy`
+- 사이드바 파일/폴더 에이전트 메뉴 — Global/Projects에서 우클릭 → 에이전트 선택 (JIRA/GitHub 동일)
+- Specs 파일 드래그&드롭 지원
+
+### 개선
+- Tool Call 표시 개선 — read: compact 뷰 (전체 경로 + 라인 범위), edit: compact 헤더 + diff, JSON 덤프 제거
+- 권한 요청 큐 — 여러 permission request 순차 처리 (이전: 마지막 1개만 표시)
+- SessionStarter 레이아웃 재배치 — Tool 카드 항상 노출, ACP 토글+시작 버튼 HStack
+- 사이드바 새로고침 시 Specs 섹션도 갱신
+
+### 수정
+- Metal crash 수정 — CLI tools 미설치 시 홈 디렉토리 전체 스캔 차단
+- CLI 도구 감지 개선 — ~/.zshrc PATH 로드 (-li)
+- ACP 환경변수 — 하드코딩 PATH 제거, 사용자 shell 환경 전체 로드
+
+---
+
+## v1.0.0-49 (2026-03-31)
+
+### 개선
+- 폰트 크기 전체 +2pt — DS 토큰 체계 적용 (fontXXS~fontIconLG)
+- 제목/헤더 bold, 하위 그룹 semibold 적용
+- 에이전트 탭 Global/Project 간격 축소
+
+---
+
+## v1.0.0-48 (2026-03-31)
+
+### 신규
+- 도구 호출 시 request input(JSON) 표시 — MCP 도구 등 요청 본문 확인 가능
+- 도구 호출 시 __tool_use_purpose 표시 — title 옆에 목적 텍스트
+
+### 수정
+- ⌘C 후 포커스 복원 — 터미널/에디터에서 복사 시 해당 뷰 포커스 유지
+- ProgressView 스피너 색상 수정
+
+---
+
+## v1.0.0-47 (2026-03-30)
+
+### 신규
+- Specs 사이드바 섹션 — ~/.kiro/specs/{프로젝트}/{에픽}/ 구조 파싱, JIRA 스타일 3단 트리
+- 스펙 상태 뱃지 (완료/진행중/미시작) — md 파일 내 테이블 자동 파싱
+- 스펙 우클릭 → 프로젝트 에이전트 선택 → ACP/Terminal 세션 시작 (스펙 context 자동 전달)
+- 에픽 아카이브 기능 (전체 완료 시 archive/ 폴더로 이동)
+- New Session 탭 분리: 히스토리 / 스펙 / 에이전트
+- 스펙 탭: 에픽 카드 (진행률 바, 완료 카운트), 스펙 → 에이전트 메뉴
+- 에이전트 탭: Global | Project 나란히 배치
+- 탭 선택 저장/복원
+
+### 수정
+- ⌘W 포커스 판단 — NSView hitTest 기반으로 변경 (에디터/터미널 정확한 구분)
+
+---
+
+## v1.0.0-46 (2026-03-30)
+
+### 개선
+- Jira/GitHub 우클릭 에이전트 메뉴에 모든 프로젝트별 에이전트 표시 (서브메뉴 그룹핑)
+
+---
+
+## v1.0.0-45 (2026-03-30)
+
+### 버그 수정
+- ACP Transport 크래시 수정 — session/cancel 후 프로세스 종료 시 NSFileHandleOperationException 방지
+
+### 새 기능
+- 에디터 비디오 프리뷰 (mp4, mov, avi, mkv, webm, m4v) — 커스텀 Playback 컨트롤
+- 이미지 뷰어 확대/축소 — 트랙패드 핀치(커서 기준), Fit/1:1 버튼, 중앙 정렬
+- 브랜치명 실시간 갱신 — .git/HEAD 파일 감시
+- open-web deep link — `kirostation://open-web?url={URL}` 내부 웹뷰로 열기
+
+---
+
+## v1.0.0-44 (2026-03-30)
+
+첫 릴리즈.
+
+### 주요 기능
+- PTY 터미널 (다중 탭, 폰트 조절, 드래그&드롭)
+- ACP 에이전트 채팅 (kiro-cli acp, 세션 복원, diff 표시)
+- 사이드바 (파일 트리, MCP 상태, 프로젝트 관리)
+- 에디터 (구문 강조, WebView, 이미지 프리뷰)
+- JIRA/GitHub 연동
+- 텔레그램 봇 (원격 제어, 백그라운드 세션)
+- Deep Link (kirostation://)
+- 글로벌 프롬프트 히스토리
