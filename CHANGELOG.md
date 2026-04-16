@@ -1,3 +1,22 @@
+## v1.0.0-65 (2026-04-16)
+
+### 주요 변경
+- 터미널 엔진을 SwiftTerm → libghostty (Ghostty v1.3.1)로 교체
+  - Metal GPU 가속 렌더링 — 깜빡임 해결
+  - NSTextInputClient 기반 한글/일본어 IME 지원
+  - ghostty 기본 키바인딩 (⌘+/⌘- 폰트 조절 등)
+
+### 수정
+- JIRA/GitHub 사이드바에서 에이전트 실행 시 URL이 전달되지 않던 버그 수정
+- 그리드 모드에서 라벨 바가 터미널 영역과 겹치던 문제 수정
+
+### 기타
+- ghostty-defaults.conf 추가 (Menlo + Apple SD Gothic Neo, 다크 테마)
+- GhosttyKit 빌드 가이드 README에 추가
+- Git LFS로 xcframework 바이너리 관리
+
+---
+
 ## v1.0.0-64 (2026-04-16)
 
 ### 수정
