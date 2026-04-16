@@ -1,3 +1,12 @@
+## v1.0.0-67 (2026-04-17)
+
+### 수정
+- Shift+Enter: kiro-cli/claude에서 줄바꿈 동작 (Kitty keyboard protocol 지원)
+- 한글 조합 중 엔터 시 조합 확정 후 즉시 전송
+- CLI 도구 실행 시 PATH 누락 문제 수정 (login shell 래핑)
+
+---
+
 ## v1.0.0-66 (2026-04-17)
 
 ### 수정
