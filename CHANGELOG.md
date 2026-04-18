@@ -1,3 +1,18 @@
+## v1.0.0-69 (2026-04-18)
+
+### 주요 변경
+- launchAgent 통합: 에이전트 실행 로직을 SessionManager 한 곳으로 통합
+- 딥링크 개선: project, cwd 파라미터 추가 (worktree 지원)
+- 프로젝트 카드 UI 개선: 280×160 고정, 브랜치/커밋 분리, NSView 기반 tooltip
+- 세션 히스토리: kiro-cli 2.0 .jsonl fallback 파싱, 빈 세션 필터, 시간순 정렬
+
+### 수정
+- GitHub PR 우클릭 에이전트 실행 안 되는 버그 수정
+- resumeSession ACP 토글 상태 동기화 버그 수정
+- SessionStarterView ZStack 제거, .infinity 전파 제거
+
+---
+
 ## v1.0.0-68 (2026-04-17)
 
 ### 수정
