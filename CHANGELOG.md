@@ -1,3 +1,34 @@
+## v1.0.0-72 (2026-04-20)
+
+### 주요 변경
+- PQ 하위 작업 대시보드/사이드바 누락 수정 (parent가 에픽이 아닌 경우 epicKey 파싱 오류)
+- 대시보드 PQ 이슈를 내 작업에 "QA Issues" 카드로 통합 (해결됨 포함, 종료 제외)
+- 대시보드 단건 이슈 카드 타이틀 "서스테이닝"으로 변경
+- 핀된 카드 항상 상단 정렬, 드래그 순서 변경 개선
+
+---
+
+## v1.0.0-71 (2026-04-20)
+
+### 주요 변경
+- Dashboard 추가 — JIRA 에픽/스토리 + 스펙 + PR 통합 대시보드
+
+### 상세
+- JIRA 에픽 기반 워크스트림 카드 (하위 스토리 + 스펙 파일 + PR 자동 매칭)
+- 서스테이닝 에픽 하위 이슈는 단건 카드로 분리
+- PQ 이슈 별도 섹션
+- Pull Requests 섹션 (repo별 그룹, 브랜치 정보 표시)
+- 카드 접기/펼기 (기본 접힘, 완료 스토리 숨김), 핀 고정, 드래그&드롭 순서 변경
+- 우클릭 에이전트 시작 (에픽/스토리/스펙/PR 각각)
+- 프로젝트 선택 영구 저장, DashboardStore로 탭 전환 시 갱신 방지
+- 사이드바 상단 Dashboard 버튼
+- JiraIssue에 epicKey/epicSummary/fixVersion, GitHubPR에 headRef/baseRef 추가
+- FlowLayout에 alignment 파라미터 추가
+- SessionStarterView: Terminal 카드 클릭 시 바로 터미널 시작
+- 워닝 수정 (concurrency, deprecated API, unused vars)
+
+---
+
 ## v1.0.0-70 (2026-04-18)
 
 ### 수정
