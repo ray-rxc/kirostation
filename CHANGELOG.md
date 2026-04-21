@@ -1,3 +1,17 @@
+## v1.0.0-74 (2026-04-21)
+
+### 주요 변경
+- 그리드 모드: Option+호버 IDE/Finder 오버레이
+  - Option 키를 누른 채 그리드 셀에 마우스를 올리면 IDE/Finder/Terminal 아이콘 표시
+  - 프로젝트 경로 기반 IDE 자동 감지 (Xcode, Android Studio, VS Code)
+  - 커스텀 앱 추가/제거 기능 (+ 버튼으로 앱 선택, 우클릭으로 제거)
+  - CWD 경로, Git 브랜치, CLI 도구 정보 표시
+  - Terminal.app으로 해당 경로 열기 지원
+- 에이전트 카드: 이름 줄바꿈 허용 (좁은 그리드에서도 이름 표시)
+- Session.acpCwd → cwd 리네임 (터미널/ACP 공용)
+
+---
+
 ## v1.0.0-73 (2026-04-21)
 
 ### 주요 변경
