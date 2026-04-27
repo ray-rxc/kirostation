@@ -1,3 +1,17 @@
+## v1.0.0-77 (2026-04-27)
+
+### 주요 변경
+- 서브에이전트 패널: 상태 모니터링 + 개별 중단 + crew 써머리 표시
+- 복원/라이브 코드 통합: 중복 버퍼링 제거 리팩토링
+- CVDisplayLink deprecated API를 CADisplayLink로 교체
+- ACP tool_call_update: extractOutput 후 content 교체 방지 (스트리밍 누적 보존)
+- 인라인 세션 닫기 확인 + 버튼 hit area 전체 영역 클릭 가능
+- ACP tool_call 출력 중복 수정
+- kslint → mo-swift-format 전환 (글로벌 바이너리 사용)
+- GhosttyKit umbrella header 워닝 숨김 (Build.xcconfig 분리)
+
+---
+
 ## v1.0.0-76 (2026-04-24)
 
 ### 주요 변경
