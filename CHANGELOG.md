@@ -1,3 +1,22 @@
+## v1.0.0-79 (2026-04-28)
+
+### 주요 변경
+- 에이전트 툴바 톤다운: 캡슐 배경 제거, 텍스트/아이콘 회색 통일
+- ChatBottomView 분리: SubAgentPanel + 입력창 + 툴바를 하나의 뷰로 묶음
+- metering(토큰 비용) 표시 제거
+
+### 상세
+- AgentToolbar: 모든 캡슐 배경/Capsule 클립 제거, 모드 피커 중복 chevron 제거, tint로 시스템 chevron 색상 맞춤
+- AgentInputView: 하단 패딩 24→4 (툴바와 간격 좁힘)
+- InputTextView: textContainerInset 2→4 (텍스트 수직 중앙 정렬)
+- AgentChatView: 하단 영역을 ChatBottomView로 교체, inputSection 제거
+- 서브에이전트 패널 권한 요청 인라인 UI
+- PostToolUse hook으로 Jira/GitHub/Git 변경 시 데이터 자동 갱신
+- DS 컬러 대비 조정 + white 토큰 + 탭/그리드 UI 개선
+- AgentToolbar 브랜치명 표시 버그 수정
+
+---
+
 ## v1.0.0-77 (2026-04-27)
 
 ### 주요 변경
