@@ -5,6 +5,8 @@
 - 큐 UI: 입력창 위에 SubAgentPanel 스타일로 표시 (개별/전체 삭제)
 - cancel 후 서버 응답 대기 후 큐 flush (race condition 방지)
 - edit 도구의 insert/create 시 diff가 표시되지 않던 문제 수정
+- 타이틀바 숨김 (hiddenTitleBar) — 콘텐츠가 윈도우 최상단까지 확장
+- 탭 배경색 톤다운 (선택: bgTertiary, 비선택: 투명)
 
 ---
 
