@@ -1,3 +1,44 @@
+## v1.0.0-81 (2026-05-04)
+
+### 주요 변경
+- SwiftUI 성능 최적화: Observable 읽기 범위 축소 + 메인 스레드 I/O 백그라운드 이동
+- 에디터 탭바 상단 정렬 수정
+
+### 상세
+
+#### 성능 — Observable 읽기 범위 축소
+- AgentChatView: interleaved() 캐싱 + 연결 상태/MCP 서브뷰 추출
+- SidebarView: Global/ProjectRow/Account/UpdateBadge 4개 서브뷰 추출
+- SessionStarterView: CLI Tools 섹션 서브뷰 추출 + 미사용 specStore 제거
+- DashboardView: dashboardData/groupedReviews를 DashboardStore로 캐싱
+- Session: draftInput → AgentChatView @State 이동, onTitleChanged 동일값 스킵
+- ProjectCardGrid: Binding 삼항 연산자 제거
+
+#### 성능 — 메인 스레드 I/O 백그라운드 이동
+- CodeEditorView: 파일 읽기 + JSON 파싱 + 정규식 캐싱 + drawLineNumbers 최적화
+- SessionStarterView: loadAgents() 파일 I/O
+- ProjectCardView: watchHead() open() syscall
+- SidebarView: toggleMCP 파일 I/O, setupWatcher FileManager 호출
+
+#### 성능 — 렌더링 최적화
+- ExecuteOutputView: ansiToAttributed @State 캐싱
+- MarkdownContentView: parseBlocks @State 캐싱 + stable ForEach ID
+- DiffView: computeUnifiedDiff onAppear 캐싱
+- BranchTreeView: BranchNode.build @State 캐싱
+- DetectedIDE: appIcon stored property로 변경
+
+#### 버그 수정
+- AgentChatView onGeometryChange 무한 루프 수정
+- 에디터 탭바 NSHostingView safe area inset으로 상단 정렬 어긋남 수정
+- 마크다운 테이블 Grid 높이 계산 오류로 메시지 겹침 수정
+- 마크다운 테이블 셀 텍스트 truncation 방지
+
+#### 기타
+- ProjectCardView: .git/HEAD watcher 추가하여 브랜치 변경 시 자동 갱신
+- post-tool-refresh hook: 복합 명령에서 모든 알림 발생하도록 수정
+
+---
+
 ## v1.0.0-80 (2026-04-29)
 
 ### 주요 변경
