@@ -1,3 +1,37 @@
+## v1.0.0-82 (2026-05-06)
+
+### 주요 변경
+- DistributedNotification 기반 외부 refresh 수신 + 토스트 UI
+- 서브에이전트 세션 히스토리 필터링
+- 대규모 리팩토링: 파일 분리 + 데드코드 제거
+
+### 상세
+
+#### 신규
+- DistributedNotification(`kr.co.rxc.KiroStation.refresh`)으로 외부에서 데이터 갱신 트리거
+- 토스트 오버레이 UI (ToastManager + ToastOverlay)
+- suspensionBehavior `.deliverImmediately` 적용
+
+#### 수정
+- 서브에이전트 세션이 히스토리 목록에 노출되던 문제 수정
+
+#### 리팩토링
+- ACPClient: 7개 extension 파일로 분리 (MessageHandler/Permission/Process/Prompt/Session/Subagent/ToolContent/Transport)
+- TelegramBotService: 7개 extension 파일로 분리 (Agents/AppControl/Background/Commands/History/Sessions/Terminal)
+- SidebarView: SidebarStore + 4개 서브뷰 추출 (AccountView/GlobalSection/ProjectRow/UpdateBadge)
+- ContentView: GridIDEContentView/GridOptionTracker/GridCellActivationOverlay/EditorMarkerView 분리
+- SessionStarterView: SessionStarterViewModel + CLIToolsSection/BranchTreeView/AddWorktreeSheet 분리
+- ProjectCardView: ProjectCardViewModel + ProjectCardGrid/GridLayoutUtilities 분리
+- GhosttySession: GhosttyApplication + GhosttyTerminalNSView 분리
+- CodeEditorView → LightEditor + LightHighlighter + LineNumberTextView 분리
+- KiroSyncSheet: KiroSyncSheetViewModel + DiffTextView 분리
+- KiroSettingsSheet: KiroSettingsViewModel 분리
+- AgentToolbar: AgentToolbarViewModel 분리
+- PreviewHelpers.swift 추가 (공통 Preview mock 데이터)
+- 미사용 코드 제거 (ACPRPCModels, SessionHistorySheet, DSAgentMenu, JiraDetailView 등)
+
+---
+
 ## v1.0.0-81 (2026-05-04)
 
 ### 주요 변경
